@@ -21,7 +21,7 @@ void main() {
   int machines = mach.length;
   int half = (machines / 2).round();
   for (int i = 0; i < machines; i++) {
-    int age = DateTime
+    final age = DateTime
         .now()
         .year - mach[i].releaseDate.year;
     allAge += age;
@@ -33,8 +33,8 @@ void main() {
 
   double allMachAge = allAge / machines;
   double halfMachAge = halfAge / half;
-  print('Средний возраст всей техники на всех угодьях: $allMachAge');
-  print('Средний возраст 50% самой старой техники: $halfMachAge');
+  print('Средний возраст всей техники на всех угодьях: ${allMachAge.toStringAsFixed(2)}');
+  print('Средний возраст 50% самой старой техники: ${halfMachAge.toStringAsFixed(2)}');
 }
 
 
