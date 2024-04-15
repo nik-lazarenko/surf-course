@@ -16,14 +16,12 @@ void main() {
     });
   });
 
-  mach.sort((before, after) =>
-  before.releaseDate.year - after.releaseDate.year);
+  mach.sort(
+      (before, after) => before.releaseDate.year - after.releaseDate.year);
   int machines = mach.length;
   int half = (machines / 2).round();
   for (int i = 0; i < machines; i++) {
-    final age = DateTime
-        .now()
-        .year - mach[i].releaseDate.year;
+    final age = DateTime.now().year - mach[i].releaseDate.year;
     allAge += age;
 
     if (i < half) {
@@ -33,10 +31,11 @@ void main() {
 
   double allMachAge = allAge / machines;
   double halfMachAge = halfAge / half;
-  print('Средний возраст всей техники на всех угодьях: ${allMachAge.toStringAsFixed(2)}');
-  print('Средний возраст 50% самой старой техники: ${halfMachAge.toStringAsFixed(2)}');
+  print(
+      'Средний возраст всей техники на всех угодьях: ${allMachAge.toStringAsFixed(2)}');
+  print(
+      'Средний возраст 50% самой старой техники: ${halfMachAge.toStringAsFixed(2)}');
 }
-
 
 enum Countries { brazil, russia, turkish, spain, japan }
 
@@ -45,17 +44,21 @@ class Territory {
   List<String> crops;
   List<AgriculturalMachinery> machineries;
 
-  Territory(this.areaInHectare,
-      this.crops,
-      this.machineries,);
+  Territory(
+    this.areaInHectare,
+    this.crops,
+    this.machineries,
+  );
 }
 
 class AgriculturalMachinery {
   final String id;
   final DateTime releaseDate;
 
-  AgriculturalMachinery(this.id,
-      this.releaseDate,);
+  AgriculturalMachinery(
+    this.id,
+    this.releaseDate,
+  );
 
   // Переопределяем оператор "==", что бы сравнивать объекты по значению
   @override
