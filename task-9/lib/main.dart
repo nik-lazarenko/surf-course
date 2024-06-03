@@ -9,12 +9,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+    return  Stack(
+      children: [
+        Positioned(
+          top: 50,
+          left: 50,
+          child: Container(),
+
         ),
-      ),
+        Positioned.fill(
+            child: GestureDetector()),
+      ],
     );
+
   }
 }
