@@ -1,5 +1,5 @@
-import 'package:surf_flutter_courses_template/domain/entity/product_entity.dart';
-import 'package:surf_flutter_courses_template/domain/entity/sorting_type.dart';
+imimport '/domain/entity/product_entity.dart';
+import '/domain/entity/sorting_type.dart';
 
 extension ProductListX on List<ProductEntity> {
   List<ProductEntity> sortByFilter(SortingType type) {
@@ -7,12 +7,12 @@ extension ProductListX on List<ProductEntity> {
       SortingType.none => this,
       SortingType.nameFromA => _sortByName(this),
       SortingType.nameFromZ => _sortByName(this, isFromA: false),
-      SortingType.ascendingOrder => _sortByPrice(this),
-      SortingType.descendingOrder => _sortByPrice(this, isCheapFirst: false),
+      SortingType.ascendingOrderPrice => _sortByPrice(this),
+      SortingType.descendingOrderPrice =>
+          _sortByPrice(this, isCheapFirst: false),
       SortingType.typeFromA => this,
       SortingType.typeFromZ => this,
     };
-
     return sortedList;
   }
 
@@ -20,9 +20,11 @@ extension ProductListX on List<ProductEntity> {
       {bool isCheapFirst = true}) {
     final result = initialList;
 
-    result.sort((a, b) => isCheapFirst
-        ? a.decimalPrice.compareTo(b.decimalPrice)
-        : b.decimalPrice.compareTo(a.decimalPrice));
+    result.sort(
+          (a, b) => isCheapFirst
+          ? a.decimalPrice.compareTo(b.decimalPrice)
+          : b.decimalPrice.compareTo(a.decimalPrice),
+    );
     return result;
   }
 
@@ -31,8 +33,7 @@ extension ProductListX on List<ProductEntity> {
     final result = initialList;
 
     result.sort((a, b) =>
-        isFromA ? a.title.compareTo(b.title) : b.title.compareTo(a.title));
-
+    isFromA ? a.title.compareTo(b.title) : b.title.compareTo(a.title));
     return result;
   }
 }
