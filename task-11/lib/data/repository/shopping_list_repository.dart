@@ -1,14 +1,12 @@
-import '../../domain/entity/check_entity.dart';
-import '../data.dart';
+import '/data/mock_data.dart';
+import '/domain/entity/receipt_entity.dart';
 
 class ShoppingListRepository {
-  Future<CheckEntity> getCheck(int id) async {
-    return Future.value(
-      CheckEntity(
-        id: id,
-        date: DateTime(2024, 2, 23, 12, 23),
-        products: dataForStudents,
-      ),
-    );
+  Future<ReceiptEntity> getReceipt(int id) async {
+    return Future.value(ReceiptEntity(
+      id: id,
+      date: DateTime.now(),
+      products: dataForStudents,
+    ));
   }
 }
